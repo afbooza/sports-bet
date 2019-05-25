@@ -1,0 +1,14 @@
+NOTES:
+
+/** HTTP HEADER OBJECT   */
+
+{ 'content-length': '123',
+  'content-type': 'text/plain',
+  'connection': 'keep-alive',
+  'host': 'mysite.com',
+  'accept': '*/*' }
+
+Agent   - manages connection for host/port 
+        - single socket connection per host/port
+        - keepAlive option allows it to be 'pooled' or reused unless server closes it
+        
