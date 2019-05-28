@@ -11,4 +11,36 @@ NOTES:
 Agent   - manages connection for host/port 
         - single socket connection per host/port
         - keepAlive option allows it to be 'pooled' or reused unless server closes it
-        
+
+TCP Agents: https://www.isi.edu/nsnam/ns/index.html
+Network Simulator
+
+API:
+
+GET (ALL, ONE), POST, PUT, DELETE
+
+nodemon --monitors changes to the application and restarts automatically (npm start script)
+babel --allows use of es6 syntax with node (does not allow out of the box i.e. 'import')
+express --node framework for handling heavy lifting and wrapping http calls etc
+
+
+DB:
+pg --is a PostgreSQL client for Node.js, pg is responsible for creating our application’s database connection. 
+pg-hstore --is a node package for serializing and deserializing JSON data to hstore format
+sequelize --an ORM (object relational model) for NodeJs, it supports PostgreSQL, MySQL, SQLite and MSSQL
+process.env --gives access to the node env, but this will not work unless we have...
+dotenv --this will give us access to the node environment from our application
+
+SEQUELIZE:
+ORM for nodejs / PostgreSQL
+CLI COMMANDS: sequelize model:create --name Todo --attributes title:string
+--creates a model and a migration
+sequelize model:create --name TodoItem --attributes description:string
+
+sequelize model:create --name League --attributes title:string
+sequelize model:create --name Player --attributes name:string
+
+sequelize db:migrate --this worked in CMD not in powershell via vscode terminal (needed to setup below env variable first)
+
+SET DATABASE_URL=postgres://postgres@localhost:5432/todoapp --windows environment variable (had to do manually)
+

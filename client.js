@@ -16,7 +16,7 @@ req.on('response', (headers, flags) => {
 req.setEncoding('utf8');
 let data = '';
 req.on('data', (chunk) => { data += chunk; });
-req.on('end', () => {
+req.on('end', () => { 
   console.log(`\n${data}`);
   client.close();
 });

@@ -1,15 +1,42 @@
-const http = require('http');
+const express = require('express');
+const XLSX = require('xlsx');
 
-http.get({
-    hostname: 'localhost',
-    port: 80,
-    path: '/',
-    agent: false  // create a new agent just for this one request
-  }, (res) => {
-    // Do stuff with response
-  });
+import db from './db/db';
+import bodyParser from 'body-parser';
+import router from './routes';
 
-const keepAliveAgent = new http.Agent({ keepAlive: true });
-options.agent = keepAliveAgent;
-http.request(options, onResponseCallback);
+const app = express();
 
+// Parse incoming requests data
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(router);
+
+const PORT = 5000;
+
+app.listen(PORT, () => {
+    console.log(`server running on port ${PORT}`)
+});
+    
+
+
+var workbook = XLSX.readFile('Book1.xlsx');
+//console.log(workbook);
+let first_sheet_name = workbook.SheetNames[0];
+var address_of_cell = 'A1';
+
+/* Get worksheet */
+var worksheet = workbook.Sheets[first_sheet_name];
+
+/* Find desired cell */
+var desired_cell = worksheet[address_of_cell];
+
+/* Get the value */
+var desired_value = (desired_cell ? desired_cell.v : undefined);
+console.log(desired_value);
+
+
+// var worksheet = workbook.Sheets[workbook.SheetNames[0]];
+// var container = document.getElementById('tableau');
+// container.innerHTML = XLSX.utils.sheet_to_html(worksheet);
