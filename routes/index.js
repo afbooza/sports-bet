@@ -25,4 +25,8 @@ router.put('/api/v1/todos/:id', todoController.updateTodo);
 
 router.post('/api/v1/league', leagueController.createLeague);
 
+router.get('/api/v1/league', leagueController.getAllLeagues);
+
+router.delete('/api/v1/league/:id', leagueController.deleteLeague);
+
 export default router;
