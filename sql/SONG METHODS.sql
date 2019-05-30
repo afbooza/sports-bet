@@ -14,10 +14,12 @@ PREPARE get_song_by_id (int) AS
 --EXECUTE get_song_by_id(1);
 
 --CREATE NEW song
-PREPARE insert_new_song(name, location, score) AS
-	INSERT INTO song
-	VALUES (DEFAULT,$1, $2, $3);
+PREPARE insert_new_song(text, int, int, int) AS
+	INSERT INTO song (song_id, name, plays_since_2016, plays_since_2018, score)
+	VALUES (DEFAULT, '$name', '$plays_since_2016', '$plays_since_2018', '$score');
 --EXECUTE insert_new_song('test', 'blossom', 3);
+
+DEALLOCATE insert_new_song
 
 
 --UPDATE song NAME BY ID

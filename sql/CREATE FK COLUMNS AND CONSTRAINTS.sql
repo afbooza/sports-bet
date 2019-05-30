@@ -15,3 +15,11 @@ ADD COLUMN play_id INTEGER;
 
 ALTER TABLE song
 ADD CONSTRAINT song_id_play_id_fkey FOREIGN KEY (play_id) REFERENCES play(play_id);
+
+ALTER TABLE SONG
+ADD COLUMN plays_since_2016 integer;
+
+
+ALTER TABLE SONG
+ADD COLUMN plays_since_2018 integer;
+
