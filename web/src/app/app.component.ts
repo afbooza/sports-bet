@@ -9,15 +9,4 @@ import { Player } from 'src/models/player';
 export class AppComponent {
   title = 'app';
 
-
-model = new Player(18, 'Dr IQ');
-
-submitted = false;
-
-onSubmit() { this.submitted = true; }
-
-newPlayer() {
-  this.model = new Player(42, '');
-}
-
 }

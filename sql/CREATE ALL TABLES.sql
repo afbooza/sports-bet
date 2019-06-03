@@ -29,4 +29,10 @@ CREATE TABLE play(
 );
 
 
+ALTER TABLE LEAGUE
+ALTER COLUMN 
+league_owner SET NOT NULL
+
+
+
 
