@@ -57,10 +57,7 @@ class LeagueController {
         let player_id = req.session.userId;
 
         const insert_into_league = {
-            text: `WITH owner_id AS (
-                SELECT league_owner FROM league
-                WHERE name = 'Phish Summer Tour 2019'
-            )            
+            text: `  
             INSERT INTO league (name, player_id, league_owner)
                             VALUES ($1, $2, owner_id);
             `,
